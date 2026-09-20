@@ -22,7 +22,7 @@ function createForm() {
     reason: '',
     scanDate: '',
     topics: [],
-    replyMethod: 'email',
+    replyMethod: '',
     message: '',
     consent: false,
   }
@@ -49,6 +49,9 @@ function submitForm() {
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)) {
     errors.value.email = 'Enter a valid email address.'
+  }
+  if (form.value.replyMethod !== 'email' && form.value.replyMethod !== 'phone') {
+    errors.value.replyMethod = 'Choose how you would like us to reply.'
   }
   const phone = form.value.phone.replaceAll(' ', '')
   if ((form.value.replyMethod === 'phone' || phone) && !/^0\d{9}$/.test(phone)) {
@@ -220,6 +223,8 @@ function submitForm() {
               name="reply-method"
               value="email"
               required
+              :aria-invalid="Boolean(errors.replyMethod)"
+              aria-describedby="reply-method-error"
             >
             Email
           </label>
@@ -230,10 +235,15 @@ function submitForm() {
               name="reply-method"
               value="phone"
               required
+              :aria-invalid="Boolean(errors.replyMethod)"
+              aria-describedby="reply-method-error"
             >
             Phone
           </label>
         </div>
+        <p v-if="errors.replyMethod" id="reply-method-error" class="field-error">
+          {{ errors.replyMethod }}
+        </p>
       </fieldset>
 
       <div class="field">

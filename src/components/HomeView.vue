@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import heroImage from '../assets/index-picture.png'
+import heroImage from '../assets/shopper-label.png'
 import { useAdditives } from '../composables/useAdditives.js'
 import { searchAdditives } from '../utils/additives.js'
 import FoodInfo from './FoodInfo.vue'
@@ -70,7 +70,9 @@ function tryCode(code) {
       <div class="hero-visual">
         <img
           :src="heroImage"
-          alt="A shopper in a supermarket holding a phone beside a grocery trolley"
+          alt="A shopper reading a food container label in a supermarket"
+          width="1125"
+          height="750"
         >
       </div>
     </div>

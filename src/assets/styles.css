@@ -643,6 +643,17 @@ select {
   object-fit: cover;
 }
 
+/* show the example photo while the camera is off */
+.camera-example {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+  transform: scale(1.02);
+}
+
 /* show this message until the camera starts or a photo is selected */
 .camera-overlay {
   position: absolute;
@@ -658,6 +669,9 @@ select {
 
 .camera-overlay p {
   margin: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background: #123f44;
 }
 
 /* put camera and confirm buttons side by side, with equal widths */

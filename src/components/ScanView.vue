@@ -2,6 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import workerUrl from 'tesseract.js/dist/worker.min.js?url'
+import scanImage from '../assets/scan-label.jpg'
 import { useAdditives } from '../composables/useAdditives.js'
 import { useFavouritesStore } from '../stores/favourites.js'
 import { matchAdditives } from '../utils/additives.js'
@@ -289,6 +290,14 @@ onBeforeUnmount(() => {
             role="img"
             aria-label="Ingredients label selected for text recognition"
           ></canvas>
+          <img
+            v-if="!cameraReady && !hasPhoto"
+            class="camera-example"
+            :src="scanImage"
+            alt="A shopper choosing a packaged food container in a supermarket"
+            width="1600"
+            height="1067"
+          >
           <div v-if="!cameraReady && !hasPhoto" class="camera-overlay">
             <p role="status">{{ cameraStatus }}</p>
             <button
