@@ -1,0 +1,3 @@
+# skip the funding message, tesseract does not need an install script
+allowBuilds:
+  tesseract.js: false
