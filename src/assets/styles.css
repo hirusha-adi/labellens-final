@@ -37,6 +37,13 @@
 html {
   font-size: 100%;
   scroll-padding-top: 1rem;
+  /*
+    https://stackoverflow.com/a/69966304
+    reserve scrollbar space so shorter pages do not shift sideways
+    ---
+    based on the feedback provided to the HD task
+  */
+  scrollbar-gutter: stable;
 }
 
 body {
